@@ -1,0 +1,873 @@
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+
+
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{latexsym}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage[all]{xy}
+\def\bul{\bullet}
+\setlength{\oddsidemargin}{.1in} 
+\setlength{\evensidemargin}{.1in} 
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{20.7cm}
+\setlength{\topmargin}{1.3cm} 
+\setlength{\footskip}{1.5cm}
+\numberwithin{equation}{section}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{}\newtheorem{conjecture}[thm]{}\newtheorem{prop}{}\providecommand{\conjecturename}{Conjecture}
+\providecommand{\theoremname}{Theorem}
+
+
+
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation 20bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Estimating Timber
+\end_layout
+
+\begin_layout Author
+Alex Deng, Dianna Liu, Helang Liu
+\end_layout
+
+\begin_layout Date
+Today
+\end_layout
+
+\begin_layout Standard
+ 
+\end_layout
+
+\begin_layout Date
+March 22, 2015
+\end_layout
+
+\begin_layout Standard
+ 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Variable-radius Plot Sampling
+\begin_inset Quotes erd
+\end_inset
+
+ is a widely used method to estimate total area covered by tree trunks in a forest. It simply multiplies a suitable factor by the total tree counts seen through a prism. This paper so far explains the rationale of this method. Section 2 states the rules, gives conjectures and clarifies notations; section 3 gives an mathematical explanation of applying this method under a special case.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Counting Trees with the Prism
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+includegraphics[width=12cm]{using-a-wedge-prism-relascope}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% * <siyliu@umich.edu> 2015-03-22T23:48:47.985Z:
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  Picture here!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+As is illustrated by the above picture, the portion of the trunk seen through the prism is offset to one side. Assume all trees are perfect cylinders. Let 
+\begin_inset Formula $DBH_i$
+\end_inset
+
+ be the diameter of tree 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $D_i$
+\end_inset
+
+ be the deviation.Then the counting rules can be presented as following:
+\end_layout
+
+\begin_layout Standard
+(1)If 
+\begin_inset Formula $D_i < DBH_i$
+\end_inset
+
+, then tree 
+\begin_inset Formula $i$
+\end_inset
+
+ is measured as 1;
+\end_layout
+
+\begin_layout Standard
+(2)if 
+\begin_inset Formula $D_i = DBH_i$
+\end_inset
+
+, meaning the offset is at the borderline of the trunk, it is measured as 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+(3)if 
+\begin_inset Formula $D_i < DBH_i$
+\end_inset
+
+, then it is not counted.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+We made the following conjectures based on the above method: 
+\end_layout
+
+\begin_layout Conjecture
+Whether a tree is counted 
+\begin_inset Quotes eld
+\end_inset
+
+in
+\begin_inset Quotes erd
+\end_inset
+
+ or not is determined by the angle of the prism 
+\begin_inset Formula $\theta$
+\end_inset
+
+, the distance from the tree to the plot center 
+\begin_inset Formula $d$
+\end_inset
+
+ and the diameter of the tree 
+\begin_inset Formula $DBH$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+Two factors determine how the tree is measured: deviation 
+\begin_inset Formula $D$
+\end_inset
+
+ and diameter 
+\begin_inset Formula $DBH$
+\end_inset
+
+. 
+\begin_inset Formula $D$
+\end_inset
+
+ is decided by 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+. 
+\begin_inset Formula $D$
+\end_inset
+
+ of all the points on a trunk is the same, assuming that the prism doesn't stretch objects.
+\end_layout
+
+\begin_layout Standard
+\noindent
+Now we assume 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and the plot center are fixed. 
+\end_layout
+
+\begin_layout Conjecture
+This method can be applied to get the amount of timber in the forest by multiplying the the total covered area by the average height of trees. 
+\end_layout
+
+\begin_layout Standard
+The average height should come from statistical analysis. More precisely, it should be the expectation of the distribution that the heights of the tree trunks follow.
+\end_layout
+
+\begin_layout Standard
+\noindent
+There are two ways to approach the problem. Since the angle for one wedge prism is fixed, then from each observation point, the range of countable trees are can be restricted in a closed circular region, and from each tree, the recognizable area is a circular region as well, called the plot area. Recall the timber inventory, we count a tree as 1 whether imaging is not out of the trunk through the prism, in other words, the tree is in the circular region regarding to the observation point, in this case, we can also say that the realm of the counted trees intersecting the observation point. In order to get the total covered area of the trees in a forest, we need to define some terminologies and abbreviation: (Note that we consider all trees as uniform cylinders.)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+The following notations are used in the paper:
+\end_layout
+
+\begin_layout Standard
+(1)
+\begin_inset Formula $BA=\pi\cdot DBH^{2}/4$
+\end_inset
+
+ is the basal area of a tree;
+\end_layout
+
+\begin_layout Standard
+(2)
+\begin_inset Formula $SA$
+\end_inset
+
+, the sample area, is the area of the region we choose to sample the entire forest. We count 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ every tree in this region.
+\end_layout
+
+\begin_layout Standard
+(3)
+\begin_inset Formula $PA$
+\end_inset
+
+, the plotting area of a tree, is defined the area of the region within which we will count this 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ tree when we sample trees with a prism;
+\end_layout
+
+\begin_layout Standard
+(4)
+\begin_inset Formula $TBA$
+\end_inset
+
+, total basal area, is the sum of the basal area of all trees.
+\end_layout
+
+\begin_layout Section
+The Cases Under Uniform Distribution
+\end_layout
+
+\begin_layout Standard
+In this section, we make the following assumption: 
+\end_layout
+
+\begin_layout Itemize
+The forest is bounded and we know the area of the forest. 
+\end_layout
+
+\begin_layout Itemize
+We can look through the whole forest. 
+\end_layout
+
+\begin_layout Itemize
+There are finitely many trees in the forest. 
+\end_layout
+
+\begin_layout Itemize
+The trees of each size are uniformly distributed in the forest. 
+\end_layout
+
+\begin_layout Standard
+Note that since there are finite many trees in the forest, then the variety of trees' size is finite as well. And we regard two trees have the same size if they have the same DBH.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Using the following steps to calculate total 
+\begin_inset Formula $BA$
+\end_inset
+
+ of the forest:
+\begin_inset Newline newline
+\end_inset
+
+ Step 1: Choose a sample area.
+\begin_inset Newline newline
+\end_inset
+
+ Step 2: Calculate 
+\begin_inset Formula $BA$
+\end_inset
+
+ of all trees in the sample area, denoted by 
+\begin_inset Formula $SBA$
+\end_inset
+
+. Then
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula \begin{align*}
+SBA = \sum_{i = 1}^{n}BA_i
+\end{align*}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of trees in the area
+\begin_inset Newline newline
+\end_inset
+
+ Step 3: Calculate the density of BA in the sample area (by the assumption of uniform distribution), then multiply it by the total area of the forest to get 
+\begin_inset Formula $TBA$
+\end_inset
+
+, which denotes the total basal area: 
+\begin_inset Formula \begin{align*}
+TBA = \frac{SBA}{\mbox{Sample Area}}\cdot \mbox{Forest Area}
+\end{align*}
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ To prove the correctness of the method that uses the prism , first we consider the case when all trees are of the same size. Since all the trees have the same size, they have the same DBH and the same 
+\begin_inset Formula $BA=\pi \cdot \frac{DBH^2}{4}$
+\end_inset
+
+ Let 
+\begin_inset Formula $N$
+\end_inset
+
+ denote the total number of tree in the forest. Since the trees are uniformly distributed, given any sampling region we have 
+\begin_inset Formula \begin{align*}
+N=n\cdot \frac{\mbox{Forest Area}}{SA},
+\end{align*}
+\end_inset
+
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of trees in the sampling region. Then 
+\begin_inset Formula \begin{align*}
+TBA = N\cdot BA = n\cdot \frac{\mbox{Forest Area}}{SA}.
+\end{align*}
+\end_inset
+
+This methods works for an arbitrary sampling region and the corresponding 
+\emph on
+SA
+\emph default
+.
+\end_layout
+
+\begin_layout Proposition
+If all the trees have the same size, the SA determined by using the prism a disk at a point is the same as the PA of the tree. In fact, the sample region is a disk 
+\end_layout
+
+\begin_layout Proof
+The proof is shown in the proof of the next theorem 
+\end_layout
+
+\begin_layout Standard
+Now, with 
+\begin_inset Formula $PA=SA$
+\end_inset
+
+, the equation can be written as:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula $TBA = \frac{n\cdot BA}{PA}\cdot \mbox{Forest Area}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ be the offset angle of the prism, the radius of a tree be 
+\begin_inset Formula $\frac{DBH}{2}$
+\end_inset
+
+ and the distance from a sampling point to a tree is the distance from the sampling point to the center of the tree. Assuming the distance from the sampling point to the center of the tree is greater than 
+\begin_inset Formula $\sqrt{2}$
+\end_inset
+
+ the radius of the tree, 
+\begin_inset Formula $\frac{BA}{PA} = \tan ^2 \frac{\theta}{2}$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% * <siyliu@umich.edu> 2015-03-22T23:46:24.807Z:
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  picture needed here!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\begin_inset Graphics 
+	filename Picture_for_389.jpg
+	width 4cm
+	height 4.5cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+We first claim that whether a tree is counted or not is determined by the offset angle of the prism, the radius of the tree denoted by 
+\begin_inset Formula $r$
+\end_inset
+
+ and the distance from the sampling point to the the tree denoted by 
+\begin_inset Formula $d$
+\end_inset
+
+. Let 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ be the angle between the two lines that cross the viewing point and are tangent to the stem of the tree. Since we assume 
+\begin_inset Formula $d > \sqrt{2} r$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha < \frac{\pi}{2}$
+\end_inset
+
+ The tree is counted if and only if 
+\begin_inset Formula $\alpha \geqslant \theta$
+\end_inset
+
+ as illustrated by the picture. We know that 
+\begin_inset Formula $\tan \frac{\alpha}{2} = \frac{r}{d}$
+\end_inset
+
+. Then 
+\begin_inset Formula \begin{align*}
+\tan \alpha & = \frac{2 \tan \alpha}{1 - \tan ^2 \alpha}
+\\ & = \frac{2\frac{r}{d}}{1 - \frac{r}{d}^2}.
+\end{align*}
+\end_inset
+
+We have a tree is counted if and only if 
+\begin_inset Formula $\alpha \leqslant \theta$
+\end_inset
+
+ and if and only if 
+\begin_inset Formula $\frac{2\frac{r}{d}}{1 - \frac{r}{d}} \geqslant \tan \theta$
+\end_inset
+
+. Solving the inequality, we get 
+\begin_inset Formula $\frac{r}{d} \geqslant \tan \frac{\theta}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Pick an arbitrary tree with radius 
+\emph on
+r
+\emph default
+. For the tree to be counted, the distance from the sampling point to the center of the tree must be smaller than 
+\begin_inset Formula $\frac{r}{\tan \frac{\theta}{2}}$
+\end_inset
+
+. This actually shows the region of the sampling point where a fixed tree is counted is a disk with radius 
+\begin_inset Formula $\frac{r}{\tan \frac{\theta}{2}}$
+\end_inset
+
+. Then we have 
+\begin_inset Formula $ PA =\pi (\frac{r}{\tan \frac{\theta}{2}}) ^2$
+\end_inset
+
+. Then 
+\begin_inset Formula $\frac{BA}{PA} = \tan ^2 \frac{\theta}{2}$
+\end_inset
+
+. This result is 
+\begin_inset Formula $r$
+\end_inset
+
+-free and 
+\begin_inset Formula $d$
+\end_inset
+
+-free and it only depends on the off set angle of the prism so it applies to all trees.
+\end_layout
+
+\begin_layout Proof
+A special case is when all the trees have the same radius. Fix an sampling point. Since a tree is counted if an only if the distance from the tree to the sampling point is smaller than 
+\begin_inset Formula $\frac{r}{\tan \frac{\theta}{2}}$
+\end_inset
+
+, we know the sample region is just a disk with radius 
+\begin_inset Formula $\frac{r}{\tan \frac{\theta}{2}}$
+\end_inset
+
+. Hence, 
+\begin_inset Formula $SA=PA$
+\end_inset
+
+ in this case. This finishes the proof of Proposition 1. 
+\end_layout
+
+\begin_layout Theorem
+Let n be the number of trees we counts using a prism with offset angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+. 
+\begin_inset Formula \begin{align*}
+TBA = n\cdot \mbox{Forest Area} \cdot \tan^2 \frac{\theta}{2}
+\end{align*}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since there are only finitely many sizes of trees, let 
+\begin_inset Formula $\{ BA_1, BA_2,..., BA_m \}$
+\end_inset
+
+ be the set of all possible basal areas of trees. Let 
+\begin_inset Formula $N_i$
+\end_inset
+
+ be the number of trees of basal area 
+\begin_inset Formula $BA_i$
+\end_inset
+
+ and 
+\begin_inset Formula $n_i$
+\end_inset
+
+ be the number of trees of basal area 
+\begin_inset Formula $BA_i$
+\end_inset
+
+ counted and 
+\begin_inset Formula $TBA_i$
+\end_inset
+
+ be the basal area covered by trees of basal area 
+\begin_inset Formula $BA_i$
+\end_inset
+
+. Then 
+\begin_inset Formula \begin{align*}
+TBA &= \sum_{i=1} ^ m TBA_i.
+\end{align*}
+\end_inset
+
+Since trees of each size are distributed uniformly and we can see all the trees, we apply the argument we make after Proposition 1 to every 
+\begin_inset Formula $TBA_i$
+\end_inset
+
+. Then we have 
+\begin_inset Formula \begin{align*}
+TBA &= \sum_{i=1} ^ m TBA_i
+\\&=\sum_{i=1} ^ m (n_i\cdot \frac{BA_i}{
+_i} \cdot \mbox{Forest Area})
+\\&=\sum_{i=1} ^ m (n_i\cdot \tan ^2 \frac{\theta}{2} \cdot \mbox{Forest Area})\ldots (\mbox{Quoting Theorem 4}).
+% * <dengr@umich.edu> 2015-03-22T15:45:21.914Z:
+% 
+\\&=\tan ^2 \frac{\theta}{2} \cdot \mbox{Forest Area} \cdot \sum_{i=1} ^ m n_i
+\\&= n\cdot \tan ^2 \frac{\theta}{2} \cdot \mbox{Forest Area}
+\end{align*}
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Section
+Other cases
+\end_layout
+
+\begin_layout Standard
+to be continued.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ In this project, we want some method to quickly estimate the scalage for a big area. Since we quantify the whole forest into 
+\emph on
+TBA
+\emph default
+, it's trivial if we only consider some area ideally distributed, we need to consider more about the sample area we choose in real world which is much more complex. To make the estimating more flexible, we could reduce the sampling in such the area in proximate density. For example, consider the sample at the same attitude or at the center of plain. Identically, getting more sample along the area with topographic variation and border will also help our output become precise. Other than estimating how much woods in the forest, this project can be involved in more meaningful endeavors. Typically, if the basal area is sufficient large in the sample we choose, then the ground cover will remarkable decrease, and the timber growing speed will decrease as well. Greater the basal area is, the greater cover of the sample area is; thus, as both increase, less sunlight reaches the ground. This lack of sunlight impedes growth of grasses, forbs, and shrubs which provide important food and cover for some species of wildlife. Also, high basal area may lead to a decrease in tree growth and vigor from the increased competition for crown space, nutrients, and moisture. Therefore, the data provided by estimating the timber could give much information for diverse of researches.
+\end_layout
+
+\begin_layout Standard
+\start_of_appendix
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%dummy comment inserted by tex2lyx to ensure that this paragraph is not empty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Code
+\end_layout
+
+\begin_layout Standard
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "projectbibliography"
+options "amsalpha"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% For the bibliography, cite any sources you used. The command above will produce a bibliography from a bibtex file named projectbibliography.bib
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
